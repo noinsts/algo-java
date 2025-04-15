@@ -1,4 +1,7 @@
 import java.util.Scanner;
+/*
+Знайти суму парних чисел на проміжку від a до b включно.
+ */
 
 public class SumEvenFromAToB {
     public static void main(String[] args) {
@@ -9,11 +12,19 @@ public class SumEvenFromAToB {
 
         long res = 0;
 
-        for (long i = a; i < b+1; i++) {
-            if (i % 2 == 0) {
-                res += i;
-            }
+        if (a % 2 != 0) {
+            a++;
         }
+
+        if (b % 2 != 0) {
+            b--;
+        }
+
+        for (long i = a; i <= b; i += 2) {
+            res += i;
+        }
+
         System.out.println(res);
+
     }
 }
