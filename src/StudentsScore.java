@@ -35,6 +35,7 @@ public class StudentsScore {
         }
 
         for (String name : scores.keySet()) {
+            System.out.println();
             System.out.println(name + ":");
 
             for (Map.Entry<Integer, Integer> entry : scores.get(name).entrySet()) {
