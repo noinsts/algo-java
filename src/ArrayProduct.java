@@ -12,17 +12,15 @@ public class ArrayProduct {
         int n = sc.nextInt();
         int[] arr = new int[n];
 
+        // наповнення масиву
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
 
-        StringBuilder res = new StringBuilder();
-
+        // збір данних
         for (int i = 0; i < n; i++) {
-            res.append(getProduct(arr, n, i)).append(" ");
+            System.out.print(getProduct(arr, n, i) + " ");
         }
-
-        System.out.println(res);
 
         sc.close();
     }
