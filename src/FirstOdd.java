@@ -12,19 +12,20 @@ public class FirstOdd {
 
         int n = sc.nextInt();
         int[] arr = new int[n];
-        boolean found = false;
 
+        // наповнюємо масив
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
+        }
 
+        // перебираємо масив та виводимо данні
+        for (int i = 0; i < n; i++) {
             if (arr[i] % 2 != 0) {
-                System.out.println(i);
-                found = true;
-                break;
+                System.out.println(arr[i]);
+                return;
             }
         }
-        if (!found) {
-            System.out.println(-1);
-        }
+
+        sc.close();
     }
 }
