@@ -6,17 +6,12 @@ import java.util.Scanner;
 
 public class NumsSquares {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        try (Scanner sc = new Scanner(System.in)) {
+            int n = sc.nextInt();
 
-        int n = sc.nextInt();
-
-        for (int i = 1; i <= n; i++) {
-            if (i * i <= n) {
+            for (int i = 1; i * i <= n; i++) {
                 System.out.print(i*i + " ");
             }
         }
-
-        sc.close();
     }
-
 }
