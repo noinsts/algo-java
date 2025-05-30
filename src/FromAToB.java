@@ -8,13 +8,8 @@ public class FromAToB {
         long b = sc.nextLong();
         long x = sc.nextLong();
 
-        long counter = 0;
+        long res = b / x - (a - 1) / x;
 
-        for (long i = a; i < b+1; i++) {
-            if (i % x == 0) {
-                counter++;
-            }
-        }
-        System.out.println(counter);
+        System.out.println(res);
     }
 }
