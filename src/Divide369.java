@@ -1,28 +1,16 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
 
 public class Divide369 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        try (BufferedReader sc = new BufferedReader(new InputStreamReader(System.in))) {
+            int x = Integer.parseInt(sc.readLine());
 
-        long x = sc.nextInt();
-
-        if (x % 3 == 0) {
-            System.out.println("Yes");
-        } else {
-            System.out.println("No");
+            System.out.println(x % 3 == 0 ? "Yes" : "No");
+            System.out.println(x % 6 == 0 ? "Yes" : "No");
+            System.out.println(x % 9 == 0 ? "Yes" : "No");
         }
-
-        if (x % 6 == 0) {
-            System.out.println("Yes");
-        } else {
-            System.out.println("No");
-        }
-
-        if (x % 9 == 0) {
-            System.out.println("Yes");
-        } else {
-            System.out.println("No");
-        }
-
     }
 }
