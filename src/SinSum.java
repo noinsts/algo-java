@@ -15,7 +15,7 @@ public class SinSum {
             double currSin = 0.0;
 
             for (int i = 1; i <= x; i++) {
-                currSin = Math.sin(i);
+                currSin += Math.sin(i);
                 sum += 1 / currSin;
             }
 
