@@ -1,46 +1,45 @@
-import java.util.Scanner;
+/*
+https://basecamp.eolymp.com/uk/problems/11387
+ */
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
 
 public class Poker {
-    private static int huseynScore = 0;
-    private static int yaroslavScore = 0;
-
-    private static int move = 1;
-
-    public static void main(String[] args) {
-        try (Scanner sc = new Scanner(System.in)) {
-            int n = sc.nextInt();
+    public static void main(String[] args) throws IOException {
+        try (BufferedReader sc = new BufferedReader(new InputStreamReader(System.in))) {
+            int n = Integer.parseInt(sc.readLine());
+            String[] line = sc.readLine().split("\\s+");
             int[] arr = new int[n];
 
             for (int i = 0; i < n; i++) {
-                arr[i] = sc.nextInt();
+                arr[i] = Integer.parseInt(line[i]);
             }
 
             int l = 0, r = n - 1;
-
-            int max;
+            int huseynScore = 0, yaroslavScore = 0;
+            boolean isHuseynTurn = true;
 
             while (l <= r) {
-                if (arr[l] > arr[r]) {
-                    max = arr[l];
-                    l++;
+                int max;
+                if (arr[l] >= arr[r]) {
+                    max = arr[l++];
                 } else {
-                    max = arr[r];
-                    r--;
+                    max = arr[r--];
                 }
-                addScore(max);
-                move++;
+
+                if (isHuseynTurn) {
+                    huseynScore += max;
+                }
+                else {
+                    yaroslavScore += max;
+                }
+
+                isHuseynTurn = !isHuseynTurn;
             }
 
-            System.out.println(huseynScore + " " + yaroslavScore);
-        }
-    }
-
-    private static void addScore(int value) {
-        if (move % 2 != 0) {
-            huseynScore += value;
-        }
-        else {
-            yaroslavScore += value;
+            System.out.printf("%d %d%n", huseynScore, yaroslavScore);
         }
     }
 }
